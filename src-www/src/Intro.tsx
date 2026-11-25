@@ -354,7 +354,7 @@ class Intro extends Component<object, LoginState> {
                                 alt="Logo"
                                 style={{ height: smallScreen ? 32 : 48 }}
                             />
-                            <div style={{ flexGrow: 1, textAlign: 'center' }}>{smallScreen ? '' : 'ioBroker.web'}</div>
+                            <div style={{ flexGrow: 1, textAlign: 'center' }}>{smallScreen ? '' : 'Synapse DCS'}</div>
                             {this.state.config?.authEnabled ? (
                                 smallScreen ? (
                                     <IconButton onClick={() => Intro.onLogout()}>

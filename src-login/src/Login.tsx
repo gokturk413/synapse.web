@@ -102,18 +102,99 @@ const styles: Record<string, any> = {
     },
 };
 
-function Logo(props: { color: string }): React.JSX.Element {
+/** The Synapse DCS mark (brand/synapse-dcs-mark.svg) */
+function Logo(_props: { color: string }): React.JSX.Element {
     return (
         <div style={{ width: 100, textAlign: 'center' }}>
             <svg
-                viewBox="0 0 512 512"
+                viewBox="0 0 64 64"
                 width="100px"
                 height="100px"
+                role="img"
+                aria-label="Synapse DCS"
             >
-                <path
-                    fill={props.color}
-                    d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM288 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM256 416c35.3 0 64-28.7 64-64c0-17.4-6.9-33.1-18.1-44.6L366 161.7c5.3-12.1-.2-26.3-12.3-31.6s-26.3 .2-31.6 12.3L257.9 288c-.6 0-1.3 0-1.9 0c-35.3 0-64 28.7-64 64s28.7 64 64 64zM176 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM96 288a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm352-32a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"
-                />
+                <defs>
+                    <linearGradient
+                        id="sdcs-login"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1"
+                    >
+                        <stop
+                            offset="0"
+                            stopColor="#0EA5E9"
+                        />
+                        <stop
+                            offset="1"
+                            stopColor="#14B8A6"
+                        />
+                    </linearGradient>
+                </defs>
+                <g
+                    fill="none"
+                    stroke="url(#sdcs-login)"
+                    strokeWidth="3.2"
+                    strokeLinecap="round"
+                >
+                    <path d="M19 32 L5 15 M19 32 L3 32 M19 32 L5 49" />
+                    <path d="M47 21 C40 25 40 39 47 43" />
+                    <path d="M47 32 L61 32 M51 27 L60 16 M51 37 L60 48" />
+                </g>
+                <g fill="url(#sdcs-login)">
+                    <circle
+                        cx="19"
+                        cy="32"
+                        r="8"
+                    />
+                    <circle
+                        cx="5"
+                        cy="15"
+                        r="3"
+                    />
+                    <circle
+                        cx="3"
+                        cy="32"
+                        r="2.6"
+                    />
+                    <circle
+                        cx="5"
+                        cy="49"
+                        r="3"
+                    />
+                    <circle
+                        cx="60"
+                        cy="16"
+                        r="3"
+                    />
+                    <circle
+                        cx="61"
+                        cy="32"
+                        r="2.6"
+                    />
+                    <circle
+                        cx="60"
+                        cy="48"
+                        r="3"
+                    />
+                </g>
+                <g fill="#F59E0B">
+                    <circle
+                        cx="32"
+                        cy="25"
+                        r="2.4"
+                    />
+                    <circle
+                        cx="35.5"
+                        cy="32"
+                        r="2.8"
+                    />
+                    <circle
+                        cx="32"
+                        cy="39"
+                        r="2.4"
+                    />
+                </g>
             </svg>
         </div>
     );
@@ -423,9 +504,9 @@ export default class Login extends Component<object, LoginState> {
         const action = `${window.location.port === '3000' ? `${window.location.protocol}//${window.location.hostname}:8082/` : '/login'}?${window.location.port === '3000' ? 'dev&' : ''}href=${window.location.hash}`;
 
         const link =
-            window.loginLink && window.loginLink !== '@@loginLink@@' ? window.loginLink : 'https://www.iobroker.net/';
+            window.loginLink && window.loginLink !== '@@loginLink@@' ? window.loginLink : '';
         const motto =
-            window.loginMotto && window.loginMotto !== '@@loginMotto@@' ? window.loginMotto : 'Discover awesome. ';
+            window.loginMotto && window.loginMotto !== '@@loginMotto@@' ? window.loginMotto : 'Distributed Control System · ';
 
         const style =
             (window.loginBackgroundColor &&
@@ -681,15 +762,8 @@ export default class Login extends Component<object, LoginState> {
                             ) : null}
                             {!window.loginLink || window.loginLink === '@@loginLink@@' ? motto : null}
                             {!window.loginLink || window.loginLink === '@@loginLink@@' ? (
-                                <Link
-                                    style={styles.ioBrokerLink}
-                                    color="inherit"
-                                    href={link}
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                >
-                                    ioBroker
-                                </Link>
+                                // plants have no internet: the name, no link
+                                <b>Synapse DCS</b>
                             ) : null}
                         </Typography>
                     </Box>
