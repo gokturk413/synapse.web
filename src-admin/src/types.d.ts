@@ -66,6 +66,14 @@ export interface WhiteListSettings {
 }
 
 export interface WebAdapterConfig {
+    /** WebTransport (Synapse DCS web_engine, RFC-009) */
+    wtEnabled?: boolean;
+    wtTls?: 'pinned' | 'ca' | 'insecure';
+    wtPort?: number;
+    wtHostnames?: string;
+    wtMaxRpcStreams?: number;
+    /** per web extension instance (`mywebui.0`): transport and the lane of each channel */
+    extensionProfiles?: Record<string, unknown>;
     accessControlEnabled: boolean;
     accessControlAllowOrigin: string;
     accessControlAllowMethods: string;

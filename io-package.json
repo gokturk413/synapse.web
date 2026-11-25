@@ -229,7 +229,14 @@
     "staticAssetCacheMaxAge": 60,
     "ttl": 3600,
     "usePureWebSockets": true,
-    "whiteListEnabled": false
+    "whiteListEnabled": false,
+    "wtEnabled": false,
+    "wtTls": "pinned",
+    "wtPort": 0,
+    "wtHostnames": "",
+    "wtMaxRpcStreams": 2000,
+    "maxLoginHours": 0,
+    "extensionProfiles": {}
   },
   "protectedNative": [
     "oidcClientSecret"

@@ -21,6 +21,7 @@ import Background from './Tabs/Background';
 import Additionally from './Tabs/Additionally';
 import UserList from './Tabs/UserList';
 import CORS from './Tabs/CORS';
+import Extensions from './Tabs/Extensions';
 import { Toast } from './Components/Toast';
 
 import enLang from './i18n/en.json';
@@ -59,7 +60,7 @@ const styles: Record<string, any> = {
     }),
 };
 
-type TabName = 'options' | 'ipFilter' | 'userList' | 'additionally' | 'background' | 'CORS';
+type TabName = 'options' | 'ipFilter' | 'userList' | 'additionally' | 'background' | 'CORS' | 'extensions';
 
 const arrayTabName: {
     name: TabName;
@@ -95,6 +96,11 @@ const arrayTabName: {
         name: 'CORS',
         translate: 'CORS-settings',
         index: 5,
+    },
+    {
+        name: 'extensions',
+        translate: 'ext_tab',
+        index: 6,
     },
 ];
 
@@ -231,6 +237,19 @@ class App extends GenericApp<GenericAppProps, AppState> {
                     <CORS
                         key="CORS"
                         native={native}
+                        onChange={(attr: string, value: any, cb?: () => void) =>
+                            this.updateNativeValue(attr, value, cb)
+                        }
+                    />
+                );
+
+            case 'extensions':
+                return (
+                    <Extensions
+                        key="extensions"
+                        socket={this.socket}
+                        native={native}
+                        instance={this.instance}
                         onChange={(attr: string, value: any, cb?: () => void) =>
                             this.updateNativeValue(attr, value, cb)
                         }
