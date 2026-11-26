@@ -102,100 +102,15 @@ const styles: Record<string, any> = {
     },
 };
 
-/** The Synapse DCS mark (brand/synapse-dcs-mark.svg) */
+/** The Synapse logo (brand/synapse-no-back.svg, Kamran's design) */
 function Logo(_props: { color: string }): React.JSX.Element {
     return (
-        <div style={{ width: 100, textAlign: 'center' }}>
-            <svg
-                viewBox="0 0 64 64"
-                width="100px"
-                height="100px"
-                role="img"
-                aria-label="Synapse DCS"
-            >
-                <defs>
-                    <linearGradient
-                        id="sdcs-login"
-                        x1="0"
-                        y1="0"
-                        x2="1"
-                        y2="1"
-                    >
-                        <stop
-                            offset="0"
-                            stopColor="#0EA5E9"
-                        />
-                        <stop
-                            offset="1"
-                            stopColor="#14B8A6"
-                        />
-                    </linearGradient>
-                </defs>
-                <g
-                    fill="none"
-                    stroke="url(#sdcs-login)"
-                    strokeWidth="3.2"
-                    strokeLinecap="round"
-                >
-                    <path d="M19 32 L5 15 M19 32 L3 32 M19 32 L5 49" />
-                    <path d="M47 21 C40 25 40 39 47 43" />
-                    <path d="M47 32 L61 32 M51 27 L60 16 M51 37 L60 48" />
-                </g>
-                <g fill="url(#sdcs-login)">
-                    <circle
-                        cx="19"
-                        cy="32"
-                        r="8"
-                    />
-                    <circle
-                        cx="5"
-                        cy="15"
-                        r="3"
-                    />
-                    <circle
-                        cx="3"
-                        cy="32"
-                        r="2.6"
-                    />
-                    <circle
-                        cx="5"
-                        cy="49"
-                        r="3"
-                    />
-                    <circle
-                        cx="60"
-                        cy="16"
-                        r="3"
-                    />
-                    <circle
-                        cx="61"
-                        cy="32"
-                        r="2.6"
-                    />
-                    <circle
-                        cx="60"
-                        cy="48"
-                        r="3"
-                    />
-                </g>
-                <g fill="#F59E0B">
-                    <circle
-                        cx="32"
-                        cy="25"
-                        r="2.4"
-                    />
-                    <circle
-                        cx="35.5"
-                        cy="32"
-                        r="2.8"
-                    />
-                    <circle
-                        cx="32"
-                        cy="39"
-                        r="2.4"
-                    />
-                </g>
-            </svg>
+        <div style={{ width: 170, textAlign: 'center' }}>
+            <img
+                src="synapse-logo.svg"
+                alt="Synapse - DCS PLC SCADA"
+                style={{ width: 170, height: 170 }}
+            />
         </div>
     );
 }

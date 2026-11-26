@@ -1,12 +1,14 @@
-# Synapse DCS brand
+# Synapse brand
 
-| File | Use |
-|---|---|
-| `synapse-dcs-logo.svg` | wordmark 400×84 — lobby header (`www/logo.svg`, `src-www/public/logo.svg`) |
-| `synapse-dcs-mark.svg` | the mark alone (also inlined in `src-login/src/Login.tsx`) |
-| `synapse-dcs-icon.svg` | app icon: the mark on a filled tile, readable at 16 px |
-| `synapse-dcs.ico`, `synapse-dcs-icon-256.png` | favicon (16, 32, 48, 256) |
+Kamran's design (2026-11-26). Originals: `synapse-no-back.svg` (preferred, no background) and `synapse-with-back.svg`.
 
-The mark: two nerve cells and the signal (amber) crossing the gap between them — a signal passing from node to
-node, as in a distributed control system. Colours: sky `#0EA5E9`/`#0284C7`, teal `#14B8A6`/`#0D9488`, amber
-`#F59E0B`, slate `#64748B`. Text uses system fonts (plants have no internet, no web fonts).
+| File | Made from | Use |
+|---|---|---|
+| `synapse-no-back.svg` | original | login page (`src-login/public/synapse-logo.svg`) |
+| `synapse-with-back.svg` | original | dark surfaces, splash |
+| `synapse-header.svg` | the mark and the wordmark of `synapse-no-back.svg`, side by side (352×84) | lobby header (`www/logo.svg`, `src-www/public/logo.svg`) |
+| `synapse-icon.svg` | the circuit "S" of `synapse-with-back.svg`, square, rounded | admin card of the lobby (`www/synapse-icon.svg`) |
+| `synapse.ico`, `synapse-icon-256.png` | `synapse-icon.svg` rendered at 16/32/48/256 | favicon of lobby and login |
+
+The derived files reference the original paths unchanged (`<use>` of the whole drawing inside a cropped `viewBox`), so they
+follow the design exactly. No web fonts (plants are offline): the lettering is part of the drawing.
